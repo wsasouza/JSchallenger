@@ -1,5 +1,5 @@
 // Get every nth element of array
-// Obter cada enésimo elemento da matriz
+// Obter cada enésimo elemento do array
 
 // Write a function that takes an array (a) and a value (n) as arguments
 // Escreva uma função que recebe um array (a) e um valor (n) como argumentos
@@ -9,7 +9,26 @@
 // Retorna o novo array
 
 function myFunction(a, n) {
-  return;
+  let arr = [];
+  let next = n;
+  for (let i = 0; i <= a.length; i++) {
+    if (i === next) {
+      arr.push(a[i - 1]);
+      next += n;
+    }
+  }
+  return arr;
+}
+
+function myFunctionP(a, n) {
+  let rest = [...a];
+  let result = [];
+  for (let i = 0; i < a.length; i++) {
+    if (rest.length < n) break;
+    result.push(rest[n - 1]);
+    rest = rest.slice(n);
+  }
+  return result;
 }
 
 console.log(myFunction([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
