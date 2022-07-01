@@ -9,11 +9,18 @@
 // Deve retornar false caso contrário
 
 function myFunction(arr) {
-  return;
+  let isEqual = false;
+  let firstElement = arr[0];
+  arr.forEach((a) => (isEqual = a === firstElement));
+  return isEqual;
+}
+
+function myFunctionP(arr) {
+  return new Set(arr).size === 1;
 }
 
 //Test Cases
-console.log(myFunction([true, true, true, true]));
-console.log(myFunction(['test', 'test', 'test']));
-console.log(myFunction([1, 1, 1, 2]));
-console.log(myFunction(['10', 10, 10, 10]));
+console.log(myFunction([true, true, true, true])); // true
+console.log(myFunction(['test', 'test', 'test'])); // true
+console.log(myFunction([1, 1, 1, 2])); // false
+console.log(myFunction(['10', 10, 10, 10])); // false
