@@ -16,7 +16,22 @@
 // { a: ['Alf', 'Alice'], b: ['Ben']}
 
 function myFunction(arr) {
-  return;
+  return arr.reduce((store, word) => {
+    const letter = word.charAt(0).toLowerCase();
+    const keyStore =
+      store[letter] || // Does it exist in the object?
+      (store[letter] = []); // If not, create it as an empty array
+    keyStore.push(word);
+
+    return store;
+  }, {});
+}
+
+function myFunctionP(arr) {
+  return arr.reduce((acc, cur) => {
+    const firstLetter = cur.toLowerCase().charAt(0);
+    return { ...acc, [firstLetter]: [...(acc[firstLetter] || []), cur] };
+  }, {});
 }
 
 console.log(myFunction(['Alf', 'Alice', 'Ben']));
