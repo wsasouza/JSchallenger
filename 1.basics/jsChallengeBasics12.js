@@ -11,7 +11,13 @@
 // Retorna a concatenação
 
 function myFunction(a, b) {
-  return;
+  let word = '';
+  if (a.length >= b.length) {
+    word = b.concat(a);
+  } else {
+    word = a.concat(b);
+  }
+  return word;
 }
 
 console.log(myFunction('cheese', 'cake')); // 'cheesecake'
