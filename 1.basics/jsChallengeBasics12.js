@@ -11,13 +11,11 @@
 // Retorna a concatenação
 
 function myFunction(a, b) {
-  let word = '';
-  if (a.length >= b.length) {
-    word = b.concat(a);
-  } else {
-    word = a.concat(b);
-  }
-  return word;
+  return a.match(b) ? b.concat(a) : a.concat(b);
+}
+
+function myFunctionP(a, b) {
+  return a.indexOf(b) === -1 ? a + b : b + a;
 }
 
 console.log(myFunction('cheese', 'cake')); // 'cheesecake'
