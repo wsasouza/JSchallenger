@@ -9,7 +9,16 @@
 // Retorna o objeto resultante
 
 function myFunction(a, b) {
-  return;
+  let keys = Object.keys(a);
+  let values = Object.values(a).map((el) => el * b);
+
+  return keys.reduce((acc, cur, i) => ({ ...acc, [cur]: values[i] }), {});
+}
+
+function myFunctionP(a, b) {
+  return Object.entries(a).reduce((acc, [key, val]) => {
+    return { ...acc, [key]: val * b };
+  }, {});
 }
 
 console.log(myFunction({ a: 1, b: 2, c: 3 }, 3));
