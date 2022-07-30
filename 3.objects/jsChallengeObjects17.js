@@ -11,7 +11,18 @@
 // Tipp: tente não alterar o array original
 
 function myFunction(arr, str) {
-  return;
+  return arr.map((obj) => {
+    const { city, country } = obj;
+    return {
+      city,
+      country,
+      continent: str,
+    };
+  });
+}
+
+function myFunctionP(arr, str) {
+  return arr.map((obj) => ({ ...obj, continent: str }));
 }
 
 console.log(
