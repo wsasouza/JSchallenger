@@ -7,7 +7,17 @@
 // Deve adicionar b dias a a e retornar o número de milissegundos desde 1º de janeiro de 1970, 00:00:00 UTC
 
 function myFunction(a, b) {
-  return;
+  const hasSummerIn = a.getTimezoneOffset();
+  a.setDate(a.getDate() + b);
+  const hasSumerOut = a.getTimezoneOffset();
+  if (hasSummerIn !== hasSumerOut) a.setHours(a.getHours() - 1);
+  return a.getTime();
+}
+
+// resolução não considera horario de verão e não passa nos testes!
+function myFunctionP(a, b) {
+  const currentDays = a.getDate();
+  return a.setDate(currentDays + b);
 }
 
 console.log(myFunction(new Date(Date.UTC(2000, 01, 01)), 31));
